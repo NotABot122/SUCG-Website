@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>About – SUCG</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --red:#CC0000;--red-d:#A30000;--red-deep:#8B0000;
+  --black:#0D0D0D;--text:#222;--muted:#666;--light:#F7F4F0;--border:#E5DDD5;--white:#fff;
+  --nh:72px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:#fff;color:var(--text);overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;line-height:1.12}
+h1{font-size:clamp(2.8rem,6vw,4.8rem);font-weight:700}
+h2{font-size:clamp(2rem,4vw,3.2rem);font-weight:600}
+h3{font-size:1.6rem;font-weight:600}
+.eyebrow{font-family:'DM Sans',sans-serif;font-size:0.68rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--red);display:block;margin-bottom:0.5rem}
+
+/* ─── NAV ─── */
+nav{position:fixed;top:0;left:0;right:0;z-index:900;background:#fff;border-bottom:1px solid var(--border);height:var(--nh);transition:box-shadow .3s}
+nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.09)}
+.nav-i{max-width:1240px;margin:0 auto;padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:var(--nh)}
+.logo-wrap{display:flex;align-items:center;flex-shrink:0}
+.logo-wrap svg{height:38px;width:auto}
+.nav-links{display:flex;list-style:none;gap:0;align-items:center}
+.nav-links>li{position:relative}
+.nav-links>li>a{display:block;padding:0 1rem;height:var(--nh);line-height:var(--nh);font-size:.82rem;font-weight:500;color:var(--text);letter-spacing:.02em;transition:color .2s;white-space:nowrap}
+.nav-links>li>a:hover,.nav-links>li>a.cur{color:var(--red)}
+.nav-links>li>a.cur{position:relative}
+.nav-links>li>a.cur::after{content:'';position:absolute;bottom:0;left:1rem;right:1rem;height:2px;background:var(--red)}
+.drop{display:none;position:absolute;top:100%;left:0;background:#fff;border:1px solid var(--border);border-top:2px solid var(--red);min-width:190px;list-style:none;box-shadow:0 8px 24px rgba(0,0,0,.1)}
+.has-drop:hover .drop{display:block}
+.drop li a{display:block;padding:.7rem 1.2rem;font-size:.82rem;color:var(--text);transition:background .15s,color .15s}
+.drop li a:hover{background:var(--light);color:var(--red)}
+.nav-cta{background:var(--red);color:#fff;font-size:.78rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;padding:.55rem 1.4rem;transition:background .2s;white-space:nowrap}
+.nav-cta:hover{background:var(--red-d)}
+.burger{display:none;background:none;border:none;font-size:1.5rem;cursor:pointer;padding:.25rem .5rem}
+
+/* ─── BUTTONS ─── */
+.btn-r{display:inline-block;background:var(--red);color:#fff;font-family:'DM Sans',sans-serif;font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:.85rem 2rem;transition:background .2s,transform .15s}
+.btn-r:hover{background:var(--red-d);transform:translateY(-1px)}
+.btn-w{display:inline-block;border:1.5px solid rgba(255,255,255,.7);color:#fff;font-family:'DM Sans',sans-serif;font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:.85rem 2rem;transition:background .2s}
+.btn-w:hover{background:rgba(255,255,255,.12);border-color:#fff}
+.btn-ro{display:inline-block;border:1.5px solid var(--red);color:var(--red);font-family:'DM Sans',sans-serif;font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:.85rem 2rem;transition:background .2s,color .2s}
+.btn-ro:hover{background:var(--red);color:#fff}
+
+/* ─── HERO ─── */
+.hero{margin-top:var(--nh);position:relative;height:calc(100vh - var(--nh));min-height:580px;display:flex;align-items:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1800&q=85');background-size:cover;background-position:center;transform:scale(1.06);transition:transform 10s ease}
+.hero:hover .hero-bg{transform:scale(1)}
+.hero-ov{position:absolute;inset:0;background:linear-gradient(110deg,rgba(5,0,0,.82) 0%,rgba(5,0,0,.45) 55%,rgba(5,0,0,.15) 100%)}
+.hero-c{position:relative;padding:0 5%;max-width:820px}
+.hero-tag{font-family:'DM Sans',sans-serif;font-size:.68rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.55);display:block;margin-bottom:1.4rem}
+.hero-c h1{color:#fff;margin-bottom:1.3rem}
+.hero-c h1 em{font-style:italic;color:rgba(255,120,120,1)}
+.hero-c p{font-size:1.05rem;color:rgba(255,255,255,.72);line-height:1.82;max-width:560px;margin-bottom:2.4rem;font-weight:300}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
+
+/* ─── STAT STRIP ─── */
+.stat-strip{background:var(--red);padding:2.8rem 5%}
+.stat-strip-i{max-width:1240px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:2rem}
+.stat-item{display:flex;align-items:center;gap:1.1rem;flex:1;min-width:160px}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:700;color:#fff;line-height:1}
+.stat-lbl{font-size:.78rem;font-weight:400;color:rgba(255,255,255,.78);line-height:1.45}
+.stat-div{width:1px;height:52px;background:rgba(255,255,255,.2);flex-shrink:0}
+
+/* ─── INTRO SPLIT ─── */
+.intro-split{display:grid;grid-template-columns:1fr 1fr;min-height:540px}
+.intro-img{overflow:hidden;position:relative}
+.intro-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.intro-img:hover img{transform:scale(1.03)}
+.intro-text{padding:5.5rem 4.5rem;display:flex;flex-direction:column;justify-content:center;background:var(--light)}
+.intro-text h2{margin:.5rem 0 1.5rem}
+.intro-text p{font-size:.93rem;color:var(--muted);line-height:1.9;margin-bottom:1rem}
+.intro-text a{margin-top:.75rem;align-self:flex-start}
+
+/* ─── SERVICES ─── */
+.services{padding:6.5rem 0;background:#fff}
+.container{max-width:1240px;margin:0 auto;padding:0 5%}
+.sec-head{text-align:center;margin-bottom:3.5rem}
+.sec-head h2{margin:.5rem 0}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.card{background:#fff;border:1px solid var(--border);overflow:hidden;transition:transform .25s,box-shadow .25s}
+.card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.11)}
+.card-img{height:250px;background-size:cover;background-position:center;position:relative;overflow:hidden}
+.card-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.35) 0%,transparent 50%)}
+.card-body{padding:2.2rem}
+.card-body h3{margin:.4rem 0 .8rem}
+.card-body p{font-size:.88rem;color:var(--muted);line-height:1.8;margin-bottom:1.5rem}
+.card-link{font-size:.8rem;font-weight:600;color:var(--red);letter-spacing:.04em}
+.card-link:hover{text-decoration:underline}
+
+/* ─── PROCESS ─── */
+.process{padding:6.5rem 0;background:var(--light)}
+.steps{display:flex;align-items:flex-start;justify-content:center;gap:0;flex-wrap:wrap;margin-bottom:3rem}
+.step{text-align:center;flex:1;min-width:110px;max-width:155px;padding:1rem .5rem}
+.step-circle{width:56px;height:56px;border-radius:50%;background:var(--red);color:#fff;font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto .9rem}
+.step h4{font-family:'DM Sans',sans-serif;font-size:.78rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.4rem;color:var(--black)}
+.step p{font-size:.78rem;color:var(--muted);line-height:1.65}
+.step-arr{font-size:1.2rem;color:var(--border);align-self:center;padding:0 .4rem;margin-top:-2rem}
+.process-cta{text-align:center}
+
+/* ─── CTA BANNER ─── */
+.cta-band{position:relative;height:420px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.cta-band-bg{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1800&q=85');background-size:cover;background-position:center}
+.cta-band-ov{position:absolute;inset:0;background:linear-gradient(135deg,rgba(139,0,0,.9) 0%,rgba(40,0,0,.78) 100%)}
+.cta-band-c{position:relative;text-align:center;padding:2rem 5%;max-width:700px}
+.cta-band-c h2{color:#fff;margin-bottom:1rem}
+.cta-band-c p{color:rgba(255,255,255,.78);font-size:1rem;margin-bottom:2.2rem;line-height:1.8}
+
+/* ─── FOOTER ─── */
+footer{background:var(--black);color:rgba(255,255,255,.42);padding:4rem 5% 0}
+.foot-i{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,.07)}
+.foot-brand p{font-size:.85rem;line-height:1.8;margin-top:1.1rem;max-width:270px}
+.foot-col h5{font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:1rem}
+.foot-col ul{list-style:none}
+.foot-col li{margin-bottom:.6rem}
+.foot-col a{font-size:.84rem;color:rgba(255,255,255,.38);transition:color .2s}
+.foot-col a:hover{color:var(--red)}
+.foot-bot{max-width:1240px;margin:0 auto;padding:1.4rem 0;font-size:.74rem;color:rgba(255,255,255,.22)}
+
+/* ─── SCROLL FADE ─── */
+.fade{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s ease}
+.fade.in{opacity:1;transform:translateY(0)}
+.fade-d1{transition-delay:.1s}
+.fade-d2{transition-delay:.2s}
+.fade-d3{transition-delay:.3s}
+.fade-d4{transition-delay:.4s}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:960px){
+  .nav-links,.nav-cta{display:none}
+  .burger{display:block}
+  .nav-links.open{display:flex;flex-direction:column;position:absolute;top:var(--nh);left:0;right:0;background:#fff;border-bottom:1px solid var(--border);padding:1rem 5%;gap:0;z-index:800}
+  .nav-links.open>li>a{height:auto;line-height:1;padding:.8rem 0;border-bottom:1px solid var(--border)}
+  .intro-split,.cards{grid-template-columns:1fr}
+  .intro-img{height:360px}
+  .steps{gap:.5rem}.step-arr{display:none}
+  .foot-i{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+  .stat-strip-i{flex-direction:column;align-items:flex-start}.stat-div{width:40px;height:1px}
+  .foot-i{grid-template-columns:1fr}
+}
+
+/* PAGE HERO */
+.page-hero{margin-top:var(--nh);position:relative;height:400px;display:flex;align-items:flex-end;overflow:hidden}
+.ph-bg{position:absolute;inset:0;background-size:cover;background-position:center}
+.ph-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.72) 0%,rgba(0,0,0,.25) 55%,transparent 100%)}
+.ph-c{position:relative;padding:3.5rem 5%;max-width:1240px;margin:0 auto;width:100%}
+.ph-c .eyebrow{color:rgba(255,255,255,.6)}
+.ph-c h1{color:#fff;font-size:clamp(2rem,4.5vw,3.4rem)}
+
+/* CONTENT SECTIONS */
+.sec{padding:5.5rem 0}
+.sec.alt{background:var(--light)}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.two-col img{width:100%;height:400px;object-fit:cover}
+.two-col .tb h2{margin:.5rem 0 1.4rem}
+.two-col .tb p{font-size:.93rem;color:var(--muted);line-height:1.9;margin-bottom:1rem}
+.two-col .tb a{margin-top:.75rem;display:inline-block}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:1rem}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.offer-card{background:#fff;border:1px solid var(--border);border-top:3px solid var(--red);padding:1.8rem;transition:transform .2s,box-shadow .2s}
+.offer-card:hover{transform:translateY(-4px);box-shadow:0 14px 36px rgba(0,0,0,.09)}
+.offer-icon{font-size:1.9rem;margin-bottom:.8rem}
+.offer-card h4{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.45rem;color:var(--black)}
+.offer-card p{font-size:.83rem;color:var(--muted);line-height:1.72}
+.ptl{max-width:780px;margin:2.5rem auto 0}
+.ptl-row{display:grid;grid-template-columns:64px 1fr;gap:1.8rem;padding:1.8rem 0;border-bottom:1px solid var(--border);align-items:start}
+.ptl-row:last-child{border-bottom:none}
+.ptl-num{width:56px;height:56px;border-radius:50%;background:var(--red);color:#fff;font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ptl-b h4{font-family:'DM Sans',sans-serif;font-size:.88rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em;margin-bottom:.35rem;color:var(--black)}
+.ptl-b p{font-size:.88rem;color:var(--muted);line-height:1.75}
+.benefit-card{background:#fff;border:1px solid var(--border);padding:1.8rem;display:flex;gap:1.1rem;align-items:flex-start;transition:transform .2s,box-shadow .2s}
+.benefit-card:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(0,0,0,.07)}
+.bn{width:36px;height:36px;background:var(--red);color:#fff;font-size:.75rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:'DM Sans',sans-serif}
+.benefit-card h4{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em;margin-bottom:.35rem;color:var(--black)}
+.benefit-card p{font-size:.83rem;color:var(--muted);line-height:1.72}
+.val-card{background:#fff;border:1px solid var(--border);border-top:3px solid var(--red);padding:2rem}
+.val-card h4{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em;margin-bottom:.5rem;color:var(--black)}
+.val-card p{font-size:.83rem;color:var(--muted);line-height:1.75}
+.tl-list{max-width:720px}
+.tl-row{display:grid;grid-template-columns:170px 1fr;gap:2rem;padding:1.6rem 0;border-bottom:1px solid var(--border)}
+.tl-row:last-child{border-bottom:none}
+.tl-dt{font-size:.73rem;font-weight:600;color:var(--red);text-transform:uppercase;letter-spacing:.09em;padding-top:.1rem;line-height:1.5}
+.tl-b h4{font-family:'DM Sans',sans-serif;font-size:.88rem;font-weight:600;margin-bottom:.3rem;color:var(--black)}
+.tl-b p{font-size:.85rem;color:var(--muted);line-height:1.75}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4.5rem;align-items:start}
+.contact-info h2{margin:.5rem 0 1.4rem}
+.contact-info p{font-size:.93rem;color:var(--muted);line-height:1.9;margin-bottom:1.5rem}
+.cd{display:flex;gap:.8rem;margin-bottom:1rem;font-size:.9rem}
+.cd strong{color:var(--black);min-width:90px;flex-shrink:0}
+.cd a{color:var(--red)}
+.cf{background:var(--light);padding:2.8rem}
+.cf h3{font-family:'Cormorant Garamond',serif;font-size:1.5rem;margin-bottom:1.6rem}
+.fg{margin-bottom:1.3rem}
+.fg label{display:block;font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.4rem;color:var(--black)}
+.fg input,.fg select,.fg textarea{width:100%;padding:.78rem 1rem;border:1px solid var(--border);background:#fff;font-family:'DM Sans',sans-serif;font-size:.9rem;color:var(--text);outline:none;transition:border-color .2s}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--red)}
+.fg textarea{height:130px;resize:vertical}
+.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+.team-card{text-align:center}
+.team-av{width:100%;aspect-ratio:1;background:var(--light);margin-bottom:.9rem;display:flex;align-items:center;justify-content:center;font-size:2.6rem;color:var(--red);overflow:hidden}
+.team-card h4{font-family:'DM Sans',sans-serif;font-size:.88rem;font-weight:600;color:var(--black);margin-bottom:.2rem}
+.team-card p{font-size:.78rem;color:var(--muted)}
+@media(max-width:960px){
+  .two-col{grid-template-columns:1fr}
+  .two-col img{height:300px}
+  .grid3{grid-template-columns:1fr 1fr}
+  .contact-grid{grid-template-columns:1fr}
+  .team-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+  .grid3,.grid2{grid-template-columns:1fr}
+  .tl-row{grid-template-columns:1fr;gap:.3rem}
+  .ptl-row{grid-template-columns:1fr;gap:.5rem}
+}
+</style>
+</head>
+<body><nav id="nav">
+  <div class="nav-i">
+    <a href="index.html" class="logo-wrap"><svg viewBox="0 0 650 200" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="r2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#CC0000"/><stop offset="100%" style="stop-color:#AA0000"/></linearGradient>
+          <linearGradient id="d2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#8B0000"/><stop offset="100%" style="stop-color:#660000"/></linearGradient>
+        </defs>
+        <g transform="translate(30, 20) scale(0.55)">
+          <path d="M 140 200 L 180 170 L 140 140 L 100 170 Z" fill="url(#r2)"/>
+          <path d="M 140 150 L 190 115 L 140 80 L 90 115 Z" fill="url(#r2)"/>
+          <path d="M 70 95 L 140 40 L 210 95 L 190 105 L 140 65 L 90 105 Z" fill="url(#d2)"/>
+        </g>
+        <line x1="200" y1="55" x2="200" y2="145" stroke="#e0e0e0" stroke-width="1.5"/>
+        <text x="230" y="100" font-family="Montserrat, sans-serif" font-size="54" font-weight="800" fill="#AA0000" letter-spacing="3">SUCG</text>
+        <rect x="230" y="110" width="75" height="3" fill="url(#r2)"/>
+        <text x="230" y="135" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#5a5a5a" letter-spacing="1.8">SEATTLE UNIVERSITY</text>
+        <text x="230" y="153" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#5a5a5a" letter-spacing="1.8">CONSULTING GROUP</text>
+      </svg></a>
+    <ul class="nav-links" id="navlinks"><li><a href="index.html">Home</a></li><li class="has-drop"><a href="clients.html">For Clients ▾</a><ul class="drop"><li><a href="clients.html">Client Services</a></li><li><a href="clients.html#process">Our Process</a></li></ul></li><li><a href="students.html">For Students</a></li><li><a href="about.html" class="cur">About</a></li><li><a href="contact.html">Contact</a></li></ul>
+    <a href="contact.html" class="nav-cta">Get Involved</a>
+    <button class="burger" onclick="document.getElementById('navlinks').classList.toggle('open')">☰</button>
+  </div>
+</nav>
+<div class="page-hero">
+  <div class="ph-bg" style="background-image:url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1800&q=85')"></div>
+  <div class="ph-ov"></div>
+  <div class="ph-c"><span class="eyebrow">Our Story</span><h1>About SUCG</h1></div>
+</div>
+
+<section class="sec">
+  <div class="container">
+    <div class="two-col fade">
+      <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=900&q=85" alt="Team collaboration"/>
+      <div class="tb">
+        <span class="eyebrow">Our Mission</span>
+        <h2>Built on Purpose. Driven by People.</h2>
+        <p>The Seattle University Consulting Group exists to provide students with hands-on exposure to consulting through real advisory projects with external organizations.</p>
+        <p>We develop students' analytical thinking, professional communication, and structured problem-solving skills — while strengthening the relationship between Seattle University and the broader business community.</p>
+        <p>Every project creates value on three levels: for the student consultant, for the client organization, and for Seattle University as an institution.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec alt">
+  <div class="container">
+    <div class="sec-head fade"><span class="eyebrow">What We Stand For</span><h2>Our Core Values</h2></div>
+    <div class="grid3">
+      <div class="val-card fade"><h4>Professionalism First</h4><p>Students are selected and trained to operate at a professional standard. Every client interaction reflects that commitment — from first meeting to final presentation.</p></div>
+      <div class="val-card fade fade-d1"><h4>Scoped to Succeed</h4><p>Projects are advisory by design. Clear scope means better work, lower risk, and a more honest engagement for everyone involved.</p></div>
+      <div class="val-card fade fade-d2"><h4>Community Connection</h4><p>Every engagement strengthens the tie between Seattle University and the regional business community — creating lasting value beyond any single project.</p></div>
+      <div class="val-card fade"><h4>Structured Thinking</h4><p>We bring analytical rigor to every challenge — not just effort, but organized, evidence-based insight delivered in a clear, professional format.</p></div>
+      <div class="val-card fade fade-d1"><h4>Continuous Learning</h4><p>We're students, and we own that. Every project is an opportunity to grow — and every piece of feedback makes the next engagement better.</p></div>
+      <div class="val-card fade fade-d2"><h4>Accountability</h4><p>We hold ourselves to the commitments we make. If we take on a project, we deliver — on time, on scope, and to a professional standard.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="container">
+    <div class="sec-head fade"><span class="eyebrow">Leadership Team</span><h2>Meet Our Officers</h2></div>
+    <div class="team-grid fade">
+      <div class="team-card"><div class="team-av">👤</div><h4>President</h4><p>Strategic direction &amp; external partnerships</p></div>
+      <div class="team-card"><div class="team-av">👤</div><h4>VP of Operations</h4><p>Project logistics &amp; internal processes</p></div>
+      <div class="team-card"><div class="team-av">👤</div><h4>VP of Outreach</h4><p>Client acquisition &amp; alumni relations</p></div>
+      <div class="team-card"><div class="team-av">👤</div><h4>VP of Marketing</h4><p>Communications &amp; recruitment</p></div>
+    </div>
+    <p style="text-align:center;margin-top:2rem;font-size:.87rem;color:var(--muted)">Leadership positions will be filled ahead of the Winter 2027 launch.</p>
+  </div>
+</section>
+
+<section class="sec alt">
+  <div class="container">
+    <div class="sec-head fade"><span class="eyebrow">Our Roadmap</span><h2>Organization Timeline</h2></div>
+    <div class="tl-list fade">
+      <div class="tl-row"><div class="tl-dt">Winter 2026</div><div class="tl-b"><h4>Foundation</h4><p>Finalizing structure, operating framework, and official registration with Seattle University.</p></div></div>
+      <div class="tl-row"><div class="tl-dt">Spring–Fall 2026</div><div class="tl-b"><h4>Building the Network</h4><p>Client acquisition, mentor recruitment, and development of project templates and processes.</p></div></div>
+      <div class="tl-row"><div class="tl-dt">Winter 2027<br/>Weeks 1–5</div><div class="tl-b"><h4>Recruitment &amp; Training</h4><p>Information sessions, applications, interviews, and pre-project training for selected consultants.</p></div></div>
+      <div class="tl-row"><div class="tl-dt">Winter 2027<br/>Week 6</div><div class="tl-b"><h4>Client Kickoff</h4><p>Projects officially launch. Teams meet clients to align on goals, context, and scope.</p></div></div>
+      <div class="tl-row"><div class="tl-dt">Winter 2027<br/>Week 8</div><div class="tl-b"><h4>Midpoint Check-In</h4><p>Teams present progress, incorporate client feedback, and refine their direction.</p></div></div>
+      <div class="tl-row"><div class="tl-dt">Winter 2027<br/>Week 11</div><div class="tl-b"><h4>Final Presentations</h4><p>Student teams deliver polished recommendations. SUCG's inaugural consulting cycle concludes.</p></div></div>
+    </div>
+  </div>
+</section>
+<section class="cta-band">
+  <div class="cta-band-bg" style="background-image:url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1800&q=85')"></div>
+  <div class="cta-band-ov"></div>
+  <div class="cta-band-c fade"><h2>Get Involved</h2><p>Whether you're a student, potential client, or professional interested in mentoring — we'd love to connect.</p>
+    <div class="hero-btns" style="justify-content:center">
+      <a href="contact.html" class="btn-r">Contact Us</a>
+      <a href="clients.html" class="btn-w">For Clients</a>
+    </div>
+  </div>
+</section><footer>
+  <div class="foot-i">
+    <div class="foot-brand"><svg viewBox="0 0 650 200" xmlns="http://www.w3.org/2000/svg" height="46">
+        <defs>
+          <linearGradient id="fr2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#CC0000"/><stop offset="100%" style="stop-color:#AA0000"/></linearGradient>
+          <linearGradient id="fd2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#8B0000"/><stop offset="100%" style="stop-color:#660000"/></linearGradient>
+        </defs>
+        <g transform="translate(30, 20) scale(0.55)">
+          <path d="M 140 200 L 180 170 L 140 140 L 100 170 Z" fill="url(#fr2)"/>
+          <path d="M 140 150 L 190 115 L 140 80 L 90 115 Z" fill="url(#fr2)"/>
+          <path d="M 70 95 L 140 40 L 210 95 L 190 105 L 140 65 L 90 105 Z" fill="url(#fd2)"/>
+        </g>
+        <line x1="200" y1="55" x2="200" y2="145" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+        <text x="230" y="100" font-family="Montserrat, sans-serif" font-size="54" font-weight="800" fill="rgba(255,255,255,0.65)" letter-spacing="3">SUCG</text>
+        <rect x="230" y="110" width="75" height="3" fill="url(#fr2)"/>
+        <text x="230" y="135" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="rgba(255,255,255,0.3)" letter-spacing="1.8">SEATTLE UNIVERSITY</text>
+        <text x="230" y="153" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="rgba(255,255,255,0.3)" letter-spacing="1.8">CONSULTING GROUP</text>
+      </svg><p>A student-led consulting organization at Seattle University. Launching Winter 2027.</p></div>
+    <div class="foot-col"><h5>Navigate</h5><ul><li><a href="index.html">Home</a></li><li><a href="clients.html">For Clients</a></li><li><a href="students.html">For Students</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div class="foot-col"><h5>Connect</h5><ul><li><a href="mailto:sucg@seattleu.edu">sucg@seattleu.edu</a></li><li><a href="#">LinkedIn</a></li><li><a href="#">Instagram</a></li></ul></div>
+  </div>
+  <div class="foot-bot">© 2026 Seattle University Consulting Group &nbsp;·&nbsp; Seattle, Washington</div>
+</footer><script>
+window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',scrollY>10)})
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target)}})},{threshold:0.1})
+document.querySelectorAll('.fade').forEach(el=>obs.observe(el))
+</script></body></html>
