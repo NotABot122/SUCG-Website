@@ -1,0 +1,16 @@
+[package]
+name = "your-username/your-app-name"
+version = "0.1.0"
+description = "My static site"
+
+[[filesystem]]
+source = "."   # folder where your HTML files live
+destination = "/public"
+
+[dependencies]
+"wasmer/static-web-server" = "^1"
+
+[command]
+name = "run"
+module = "wasmer/static-web-server:webserver"
+runner = "https://webc.org/runner/wasi"
