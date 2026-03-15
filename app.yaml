@@ -1,0 +1,5 @@
+kind: wasmer.io/App.v0
+name: your-app-name
+package: .
+capabilities:
+  instaboot: true
