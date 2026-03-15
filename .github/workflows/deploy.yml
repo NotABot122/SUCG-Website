@@ -22,4 +22,4 @@ jobs:
         run: wasmer deploy --help
 
       - name: Deploy to Wasmer Edge
-        run: wasmer deploy --non-interactive --token ${{ secrets.WASMER_TOKEN }} --make-default
+        run: wasmer deploy --non-interactive --token ${{ secrets.WASMER_TOKEN }}
