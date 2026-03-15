@@ -18,5 +18,8 @@ jobs:
       - name: Add Wasmer to PATH
         run: echo "$HOME/.wasmer/bin" >> $GITHUB_PATH
 
+      - name: Check deploy flags
+        run: wasmer deploy --help
+
       - name: Deploy to Wasmer Edge
         run: wasmer deploy --non-interactive --token ${{ secrets.WASMER_TOKEN }} --make-default
