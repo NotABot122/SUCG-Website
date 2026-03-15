@@ -2,6 +2,7 @@
 name = "notabot122/SUCG-Website"
 version = "0.1.0"
 description = "My static site"
+private = false
 
 [dependencies]
 "wasmer/static-web-server" = "^1"
