@@ -272,13 +272,17 @@ footer{background:var(--black);color:rgba(255,255,255,.42);padding:4rem 5% 0}
         <div class="cd"><strong>LinkedIn</strong><a href="#">@SUCG</a></div>
         <div class="cd"><strong>Instagram</strong><a href="#">@sucg_seattleu</a></div>
       </div>
-      <div class="cf">
+      <form class="cf" action="https://formsubmit.co/seattleuconsultinggroup@gmail.com" method="POST">
         <h3>Send Us a Message</h3>
-        <div class="fg"><label>Your Name</label><input type="text" placeholder="Jane Smith"/></div>
-        <div class="fg"><label>Email Address</label><input type="email" placeholder="jane@example.com"/></div>
-        <div class="fg"><label>Organization (if applicable)</label><input type="text" placeholder="Company or University"/></div>
-        <div class="fg"><label>I am a…</label>
-          <select>
+        <input type="hidden" name="_subject" value="New SUCG website message"/>
+        <input type="hidden" name="_captcha" value="false"/>
+        <input type="hidden" name="_template" value="table"/>
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off"/>
+        <div class="fg"><label for="contact-name">Your Name</label><input id="contact-name" name="name" type="text" placeholder="Jane Smith" required/></div>
+        <div class="fg"><label for="contact-email">Email Address</label><input id="contact-email" name="email" type="email" placeholder="jane@example.com" required/></div>
+        <div class="fg"><label for="contact-organization">Organization (if applicable)</label><input id="contact-organization" name="organization" type="text" placeholder="Company or University"/></div>
+        <div class="fg"><label for="contact-role">I am a...</label>
+          <select id="contact-role" name="role">
             <option>Potential Client / Partner Organization</option>
             <option>Seattle University Student</option>
             <option>Potential Mentor or Advisor</option>
@@ -286,9 +290,9 @@ footer{background:var(--black);color:rgba(255,255,255,.42);padding:4rem 5% 0}
             <option>Other</option>
           </select>
         </div>
-        <div class="fg"><label>Message</label><textarea placeholder="Tell us a bit about yourself and how you'd like to get involved..."></textarea></div>
-        <button class="btn-r" style="width:100%;border:none;cursor:pointer;font-size:.8rem">Send Message</button>
-      </div>
+        <div class="fg"><label for="contact-message">Message</label><textarea id="contact-message" name="message" placeholder="Tell us a bit about yourself and how you'd like to get involved..." required></textarea></div>
+        <button type="submit" class="btn-r" style="width:100%;border:none;cursor:pointer;font-size:.8rem">Send Message</button>
+      </form>
     </div>
   </div>
 </section>
