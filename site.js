@@ -1,12 +1,4 @@
 (function(){
-  const CANONICAL_HOST="www.sucgconsulting.com";
-  const APEX_HOST="sucgconsulting.com";
-
-  if(location.hostname===APEX_HOST){
-    location.replace(`${location.protocol}//${CANONICAL_HOST}${location.pathname}${location.search}${location.hash}`);
-    return;
-  }
-
   function normalizeAddress(){
     if(location.protocol.startsWith("http")){
       history.replaceState(history.state||{}, "", "/");
