@@ -59,6 +59,12 @@ nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.09)}
 .btn-w:hover{background:rgba(255,255,255,.12);border-color:#fff}
 .btn-ro{display:inline-block;border:1.5px solid var(--red);color:var(--red);font-family:'DM Sans',sans-serif;font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:.85rem 2rem;transition:background .2s,color .2s}
 .btn-ro:hover{background:var(--red);color:#fff}
+.interest-band{padding:2rem 0;background:var(--light);border-bottom:1px solid var(--border)}
+.interest-band-i{max-width:1240px;margin:0 auto;padding:0 5%;display:flex;align-items:center;justify-content:space-between;gap:2rem}
+.interest-band h2{font-size:1.8rem;margin:.2rem 0 .35rem}
+.interest-band p{font-size:.9rem;color:var(--muted);line-height:1.6;max-width:650px}
+.interest-band .btn-r{flex-shrink:0;text-align:center}
+@media(max-width:700px){.interest-band-i{align-items:stretch;flex-direction:column;gap:1.3rem}.interest-band .btn-r{align-self:flex-start}}
 
 /* ─── HERO ─── */
 .hero{margin-top:var(--nh);position:relative;height:calc(100vh - var(--nh));min-height:580px;display:flex;align-items:center;overflow:hidden}
@@ -268,6 +274,13 @@ footer{background:var(--black);color:rgba(255,255,255,.42);padding:4rem 5% 0}
   <div class="ph-ov"></div>
   <div class="ph-c"><span class="eyebrow">Reach Out</span><h1>Contact Us</h1></div>
 </div>
+
+<section class="interest-band" aria-labelledby="contact-interest-title">
+  <div class="interest-band-i">
+    <div><span class="eyebrow">For Seattle University Students</span><h2 id="contact-interest-title">Want to get involved?</h2><p>Complete our student interest form to hear about opportunities to join SUCG. For other inquiries, send us a message below.</p></div>
+    <a href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=UuAQvBywSUiZZ-5-x0_J2PQHhlPhn21OvLV589xNCk1UNDFZSTAyWlFYT0w0RkVLU1BPQTJXSFJJTS4u" class="btn-r" target="_blank" rel="noopener noreferrer">Complete Interest Form</a>
+  </div>
+</section>
 
 <section class="sec">
   <div class="container">
